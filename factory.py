@@ -22,13 +22,14 @@ def generate_users(count):
 	"""Generate a specific number of users."""
 
 	for u in range(count):
+		counter = u + 1
 		first_name_random = 'Test{}'.format(generate_number())
 		last_name_random = 'Test{}'.format(generate_number())
-		email_random = 'test{}@test.com'.format(u + 1)
+		email_random = 'test{}@test.com'.format(counter)
 		username_random = 'test{}'.format(generate_number())
 		password_random = 'Admin123$'
 
-		User.objects.create(
+		User.objects.create_user(
 			first_name=first_name_random,
 			last_name=last_name_random,
 			email=email_random,

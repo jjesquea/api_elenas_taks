@@ -9,10 +9,10 @@ services:
     build:
       context: .
     env_file: .env
-    command: ./entrypoint.sh
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+    command: ["./wait-for-it.sh", "db:5432", "--", "./entrypoint.sh"]
